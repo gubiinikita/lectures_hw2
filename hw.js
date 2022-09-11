@@ -189,7 +189,7 @@ const km = 1000; // метров в километре
 let result1 = m / km;
 
 if(result1 >= 1000){
-    console.log(`${result1} метров`)
+    console.log(`${km} километров это ${result1} метров`)
 } else if(result1 <1000){
-    console.log(`${result1} километров`)
+    console.log(`${m} метров это ${result1} километров`)
 }
