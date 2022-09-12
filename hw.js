@@ -183,7 +183,7 @@ console.log(string);
 // Відмінювання для "метр" (аналогічні закінчення будуть і для слова "кілометр")
 // https://www.kyivdictionary.com/uk/words/conjugation/?word=%D0%BC%D0%B5%D1%82%D1%80&lang=uk
 
-let m = 5000; // метров
+let m = 0.2; // метров
 const result1 = m / 1000; // метров в километре
 let lastMSign = m.toString().slice(-1);
 let lastMTwoSigns = m.toString().slice(-2);
@@ -193,15 +193,24 @@ let lastKmTwoSigns = result1.toString().slice(-2);
 let ending1 = "а",
     ending2 = "ов";
 
-if(lastKmSign === "2" && lastMSign === "2" || lastKmSign === "3" && lastMSign === "3" || lastKmSign === "4" && lastMSign === "4" ) {
+if(m >= 1000 && lastKmSign === "2" && lastMSign === "2" || m >= 1000 && lastKmSign === "3" && lastMSign === "3" || m >= 1000 && lastKmSign === "4" && lastMSign === "4" ) {
     console.log(`${m} метр${ending1} – это ${result1} километр${ending1}`)
-} else if(lastKmSign === "5" || lastKmSign === "6" || lastKmSign === "7" || lastKmSign === "8" || 
-lastKmSign === "9"|| lastKmSign === "0" && lastMTwoSigns === "00"){
+} else if(m >= 1000 && lastKmSign === "5" || m >= 1000 && lastKmSign === "6" || m >= 1000 && lastKmSign === "7" || m >= 1000 && lastKmSign === "8" || 
+m >= 1000 && lastKmSign === "9"|| m >= 1000 && lastKmSign === "0" && lastMTwoSigns === "00"){
     console.log(`${m} метр${ending2} – это ${result1} километр${ending2}`)
-} else if(lastMTwoSigns === "01" || lastMSign === "1"){
+} else if(m >= 1000 && lastMTwoSigns === "01" || m >= 1000 && lastMSign === "1"){
     console.log(`${m} метр – это ${result1} километр`)
-} else if(lastKmSign === "2" && lastMSign === "0" || lastKmSign === "3" && lastMSign === "0" || lastKmSign === "4" && lastMSign === "0" ){
+} else if(m >= 1000 && lastKmSign === "2" && lastMSign === "0" || m >= 1000 && lastKmSign === "3" && lastMSign === "0" || m >= 1000 && lastKmSign === "4" && lastMSign === "0" ){
     console.log(`${m} метр${ending2} – это ${result1} километр${ending1}`)
-} else if(m === 1000 || m === 100 || m === 10){
+} else if(m === 1000){
     console.log(`${m} метр${ending2} – это ${result1} километр`)
+} else if(m < 1000 && lastKmSign === "2" && lastMSign === "2" || m < 1000 && lastKmSign === "3" && lastMSign === "3" || m < 1000 && lastKmSign === "4" && lastMSign === "4" ) {
+    console.log(`${m} метр${ending1} – это ${result1} километра`)
+} else if( m < 1000 && lastKmSign === "5" || m < 1000 && lastKmSign === "6" || m < 1000 && lastKmSign === "7" || 
+m < 1000 && lastKmSign === "8" || m < 1000 && lastKmSign === "9"|| m < 1000 && lastKmSign === "0" && lastMTwoSigns === "00" || 
+m === 100 || m === 10 || m < 1000 && lastKmSign === "2" && lastMSign === "0" || m < 1000 && lastKmSign === "3" && lastMSign === "0" || 
+m < 1000 && lastKmSign === "4" && lastMSign === "0" ){
+    console.log(`${m} метр${ending2} – это ${result1} километра`)
+} else if( m < 1000 && lastMTwoSigns === "01" || m < 1000 && lastMSign === "1"){
+    console.log(`${m} метр – это ${result1} километра`)
 };
