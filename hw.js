@@ -195,7 +195,7 @@ let ending1 = "а",
 
 if(lastKmSign === "2" && lastMSign === "2" || lastKmSign === "3" && lastMSign === "3" || lastKmSign === "4" && lastMSign === "4" ) {
     console.log(`${m} метр${ending1} – это ${result1} километр${ending1}`)
-} else if(lastKmSign === "5" || lastKmSign === "6" || lastKmSign === "7" || lastKmSign === "7" || lastKmSign === "8" || 
+} else if(lastKmSign === "5" || lastKmSign === "6" || lastKmSign === "7" || lastKmSign === "8" || 
 lastKmSign === "9"|| lastKmSign === "0" && lastMTwoSigns === "00"){
     console.log(`${m} метр${ending2} – это ${result1} километр${ending2}`)
 } else if(lastMTwoSigns === "01" || lastMSign === "1"){
