@@ -176,7 +176,6 @@ let someText = 'Alexisonfire';
 string = someText.replace( /[aeioe]/gi, '' );
 console.log(string);
 
-
 // Задание 9
 // Використовуючи оператор if реалізувати логіку переводу метрів в кілометри,
 // так щоб в консоль виводився результат обчислень з правильним закнченням.
@@ -184,12 +183,25 @@ console.log(string);
 // Відмінювання для "метр" (аналогічні закінчення будуть і для слова "кілометр")
 // https://www.kyivdictionary.com/uk/words/conjugation/?word=%D0%BC%D0%B5%D1%82%D1%80&lang=uk
 
-let m = 10000; // метров
-const km = 1000; // метров в километре
-let result1 = m / km;
+let m = 5000; // метров
+const result1 = m / 1000; // метров в километре
+let lastMSign = m.toString().slice(-1);
+let lastMTwoSigns = m.toString().slice(-2);
+let lastKmSign = result1.toString().slice(-1);
+let lastKmTwoSigns = result1.toString().slice(-2);
 
-if(result1 >= 1000){
-    console.log(`${km} километров это ${result1} метров`)
-} else if(result1 <1000){
-    console.log(`${m} метров это ${result1} километров`)
-}
+let ending1 = "а",
+    ending2 = "ов";
+
+if(lastKmSign === "2" && lastMSign === "2" || lastKmSign === "3" && lastMSign === "3" || lastKmSign === "4" && lastMSign === "4" ) {
+    console.log(`${m} метр${ending1} – это ${result1} километр${ending1}`)
+} else if(lastKmSign === "5" || lastKmSign === "6" || lastKmSign === "7" || lastKmSign === "7" || lastKmSign === "8" || 
+lastKmSign === "9"|| lastKmSign === "0" && lastMTwoSigns === "00"){
+    console.log(`${m} метр${ending2} – это ${result1} километр${ending2}`)
+} else if(lastMTwoSigns === "01" || lastMSign === "1"){
+    console.log(`${m} метр – это ${result1} километр`)
+} else if(lastKmSign === "2" && lastMSign === "0" || lastKmSign === "3" && lastMSign === "0" || lastKmSign === "4" && lastMSign === "0" ){
+    console.log(`${m} метр${ending2} – это ${result1} километр${ending1}`)
+} else if(m === 1000 || m === 100 || m === 10){
+    console.log(`${m} метр${ending2} – это ${result1} километр`)
+};
