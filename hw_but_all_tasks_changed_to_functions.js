@@ -9,7 +9,7 @@
 //     то виводити в консоль текст "Ми йдемо в інше кафе"
 //     (Змінні типу інтеджер містять кількість продуктів в наявності у вигляді вхідних даних)
 
-function doWeHaveEnoughFood(hamburger, fries){
+const doWeHaveEnoughFood = (hamburger, fries) => {
     if(hamburger >= 5 && fries){
         return "Мы поели";
     } else {
@@ -17,6 +17,7 @@ function doWeHaveEnoughFood(hamburger, fries){
     };
 };
 console.log(doWeHaveEnoughFood(0, 1));
+
 
 // Задание 2
 //Напишіть умовну конструкцію if, що перевіряє, чи знаходиться значення ціни товару між 1000 та 1900 включно.
