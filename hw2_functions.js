@@ -167,3 +167,46 @@ function findProductById(productsList, productId) {
 }
 console.log(findProductById(products, 1355));
 
+/** ЗАВДАННЯ 9
+ * 1. Створіть функцію "arraySortInfo" з одним параметром - "inputArray", та реалізуйте наступну логіку
+ * 2. Якщо хоча б один елемент у масиві не є числом – повернути "Деякі елементи не є числами"
+ * 3. Якщо числа у масиві відсортовані за зростанням - повернути "Масив відсортований за зростанням"
+ * 4. Якщо числа в масиві відсортовані за спаданням - повернути "Масив відсортований за спаданням".
+ * 5. Якщо масив не відсортований - повернути "Масив не відсортований"
+
+/*  const a = [5, 'abc', 10, 1]
+ const b = [4, 10, 14, 25, 25, 50]
+ const c = [150, 132, 80, 40]
+ const d = [15, 26, 10, 23, 85]
+
+ console.log(arraySortInfo(a)) // Деякі елементи не є числами
+ console.log(arraySortInfo(b)) // Масив відсортований за зростанням
+ console.log(arraySortInfo(c)) // Масив відсортований за спаданням
+ console.log(arraySortInfo(d)) // Масив не відсортований */
+ /**
+  * ПІДКАЗКИ
+  * Підказка 1: Використовуйте метод масивів "every"
+  * Підказка 2: Ви повинні використовувати два параметри в колбек функції "element", "index"
+  * Підказка 3: Кожен елемент масиву, крім першого, слід порівнювати з попереднім
+  */
+
+// arraySortInfo(a);
+const a = [5, 'abc', 10, 1]
+const b = [4, 10, 14, 25, 25, 50]
+const c = [150, 132, 80, 40]
+const d = [15, 26, 10, 23, 85]
+
+function arraySortInfo(inputArray) {
+  let aa = inputArray.slice(1);
+  if(aa.find((a) => typeof a !== 'number')){
+     return `Деякі елементи масиву [${inputArray}] не є числами`;
+    }
+  if(aa.every((a, i) => inputArray[i] <= a)){
+      return `Масив [${inputArray}] відсортований за зростанням`;
+  }
+  if(aa.every((a, i) => inputArray[i] > a)){
+      return `Масив [${inputArray}] відсортований за спаданням`;
+  }
+  return `Масив [${inputArray}] не відсортований`;
+};
+console.log(arraySortInfo(d));
